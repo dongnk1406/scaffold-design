@@ -10,6 +10,13 @@
 
 ---
 
+## ⚠️ Amendment (2026-06-02): No tests
+
+This project does **not** use unit tests. The original plan below was TDD-style; **all test steps are void**:
+- **Task 2 (Vitest setup) is dropped** — the test scaffolding was removed.
+- For every other task, **skip the "write failing test / run it to fail" steps and the test files.** Implement the code and verify with `pnpm type:check` (no *new* errors beyond the pre-existing `src/router.tsx` one), `pnpm build`, and `pnpm lint`.
+- Code blocks for components/helpers below remain authoritative (React 19, no `forwardRef`).
+
 ## Conventions (read before starting)
 
 - **Imports:** internal modules use the `#/*` alias (maps to `src/*` via package.json `imports` + tsconfig paths). Test files import siblings relatively (`./button`).
