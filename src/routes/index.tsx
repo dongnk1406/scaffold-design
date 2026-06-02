@@ -14,16 +14,11 @@ function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-page-subtle p-4">
       {/* Figma card radius is 12px (off our sm/md scale) and is flat — here we
           stay on-system with rounded-md and drop the Card's default elevation. */}
-      <Card className="w-full max-w-[400px] border-0 p-10 shadow-none">
+      <Card className="w-full max-w-100 border-0 p-10 shadow-none">
         <form
           className="flex flex-col gap-6"
           onSubmit={(e) => e.preventDefault()}
         >
-          {/* Logo placeholder — the Figma brand mark is a custom vector asset */}
-          <div className="flex justify-center">
-            <span className="text-h3 text-primary">Scaffold</span>
-          </div>
-
           <div className="flex flex-col gap-1 text-center">
             <h1 className="text-h2 text-foreground">Welcome back</h1>
             <p className="text-body text-foreground-subtle">
