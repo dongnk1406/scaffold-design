@@ -1,4 +1,5 @@
-import { clsx, type ClassValue } from 'clsx'
+import { clsx } from 'clsx'
+import type { ClassValue } from 'clsx'
 import { extendTailwindMerge } from 'tailwind-merge'
 
 // Custom typography utilities (text-h1, text-body, ...) are font sizes, not
