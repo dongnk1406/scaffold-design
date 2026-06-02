@@ -23,7 +23,7 @@ export function TextField({
   const message = error ?? helperText
   return (
     <div className="flex flex-col gap-1">
-      <label htmlFor={inputId} className="text-h5 text-foreground">
+      <label htmlFor={inputId} className="text-label text-foreground">
         {label}
       </label>
       <div className="relative">

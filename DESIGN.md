@@ -61,6 +61,8 @@ typography:
     h3: { size: 19, lineHeight: 28, weight: 600 }
     h4: { size: 17, lineHeight: 24, weight: 600 }
     h5: { size: 13, lineHeight: 16, weight: 600 }
+    # Form field label
+    label: { size: 14, lineHeight: 20, weight: 600 }
     # Body text
     body-large: { size: 19, lineHeight: 28, weight: 400 }
     body: { size: 17, lineHeight: 24, weight: 400 }
@@ -72,8 +74,8 @@ typography:
 
 rounded:
   none: 0
-  sm: 4      # inputs, fields, small controls
-  md: 8      # buttons, cards, surfaces
+  sm: 4      # inputs, fields, buttons, small controls
+  md: 8      # cards, surfaces
   full: 9999 # pills, avatars, spinners
 
 spacing:
@@ -94,29 +96,34 @@ elevation:
   focus-ring: "0 0 0 2px rgba(3,170,112,0.30)"  # 2px brand-green ring
 
 components:
+  # Buttons use body-small (15px) text, 4px radius, and a pointer cursor —
+  # verified against the Figma Button component (Tone=Primary, Size=Medium).
   button-primary:
     backgroundColor: "#00C28D"
     textColor: "#FFFFFF"
-    typography: body
-    rounded: md
+    typography: body-small
+    rounded: sm
     height: 44
     padding: "0 16px"
+    cursor: pointer
     hover: { backgroundColor: "#00A87B" }
     pressed: { backgroundColor: "#108663" }
     disabled: { backgroundColor: "#98A2B8", textColor: "#FFFFFF" }
   button-secondary:
     backgroundColor: "#FFBB66"
     textColor: "#1A2A3A"
-    typography: body
-    rounded: md
+    typography: body-small
+    rounded: sm
     height: 44
+    cursor: pointer
     pressed: { backgroundColor: "#FF9F29" }
   button-outline:
     backgroundColor: "transparent"
     textColor: "#00A87B"
     border: "1px solid #00C28D"
-    rounded: md
+    rounded: sm
     height: 44
+    cursor: pointer
   text-field:
     backgroundColor: "#FFFFFF"
     textColor: "#1A2A3A"
@@ -202,7 +209,8 @@ black weights). Fall back to `Helvetica Neue, Arial, sans-serif`.
 | H2 | 23 / 36 | 600 | Section heading |
 | H3 | 19 / 28 | 600 | Sub-section |
 | H4 | 17 / 24 | 600 | Card / group title |
-| H5 | 13 / 16 | 600 | Eyebrow / label |
+| H5 | 13 / 16 | 600 | Eyebrow |
+| Label | 14 / 20 | 600 | Form field label |
 | Body L | 19 / 28 | 400 | Lead paragraph |
 | Body | 17 / 24 | 400 | Default body copy |
 | Body S | 15 / 18 | 400 | Secondary / dense UI |
@@ -238,7 +246,7 @@ relevant status colour. Never remove focus rings for keyboard users.
 
 ## Shapes
 
-- Radii: `sm 4px` for inputs and small controls; `md 8px` for buttons, cards,
+- Radii: `sm 4px` for inputs, buttons, and small controls; `md 8px` for cards
   and surfaces; `full` for pills, avatars, and spinners.
 - Borders are 1px, `border` `#DCE1EC` by default; active/focus borders switch to
   brand green or the relevant status colour.
@@ -247,18 +255,20 @@ relevant status colour. Never remove focus rings for keyboard users.
 
 ## Components
 
-**Button** — Default height 44px, radius `md` (8px), `body` text (17px SemiBold).
-- *Primary*: green fill, white text. Hover/pressed darken through
+**Button** — Default height 44px, radius `sm` (4px), `body-small` text (15px
+SemiBold), pointer cursor. Labels are sentence/title case (not uppercase).
+- *Primary*: green fill `#00C28D`, white text. Hover/pressed darken through
   `#00A87B` → `#108663`. Disabled fills `#98A2B8`.
 - *Secondary*: amber fill, dark text.
-- *Outline / ghost*: transparent fill, green text, green border.
-One primary action per view; everything else is secondary or a link.
+- *Outline*: transparent fill, green text, green border.
+- *Ghost*: transparent fill, green text, no border — used for text/link actions.
+One primary action per view; everything else is secondary or ghost.
 
 **Text field** — 44px tall, radius `sm` (4px), 1px `border-input`. Hover
 darkens the border; focus shows the green border + focus ring; error uses
 `critical-bold` border; disabled uses `page-subtle` fill with subtle text.
-Always pair with a visible label (13px H5 label style) and reserve space for a
-helper/error message.
+Always pair with a visible label (14px `label` style, SemiBold) and reserve
+space for a helper/error message.
 
 **Card** — White surface, 1px `border`, radius `md`, **E2** elevation, 16px
 padding. Use for grouped content and selectable options.
