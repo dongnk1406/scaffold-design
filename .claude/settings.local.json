@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__figma-mcp-go__navigate_to_page",
+      "mcp__figma-mcp-go__get_styles",
+      "mcp__figma-mcp-go__get_design_context"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "figma-mcp-go"
+  ]
+}
